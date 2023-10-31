@@ -1,7 +1,7 @@
 # ucp_halloween
 Estimados alumnos, tenemos un desafío para hacerlo en la semana de halloween
 
-Aquí tienes un desafío de programación para Halloween que puedes desarrollar utilizando PHP y MySQL. El objetivo es crear una aplicación web simple que permita a los usuarios registrar y votar por sus disfraces de Halloween favoritos. 
+Aquí tienen un desafío de programación para Halloween que puedes desarrollar utilizando PHP y MySQL. El objetivo es crear una aplicación web simple que permita a los usuarios registrar y votar por sus disfraces de Halloween favoritos. 
 
 Pasos:
 
@@ -13,6 +13,7 @@ Pasos:
       - `nombre` (nombre del disfraz)
       - `descripcion` (breve descripción del disfraz)
       - `votos` (número de votos)
+      - `foto` (nombre del archivo)
 
 2. Desarrollo de la aplicación web:
 
@@ -34,5 +35,9 @@ Pasos:
 
    b. Puedes permitir que los usuarios carguen imágenes de sus disfraces junto con la descripción.
 
-¡Este desafío debería ser un proyecto interesante para desarrollar durante Halloween! Asegúrate de investigar y aprender sobre autenticación, seguridad y buenas prácticas de desarrollo web en PHP y MySQL mientras lo construyes. ¡Diviértete programando!
+¡Este desafío debería ser un proyecto interesante para desarrollar durante Halloween! 
+
+Asegúrate de investigar y aprender sobre autenticación, seguridad y buenas prácticas de desarrollo web en PHP y MySQL mientras lo construyes. 
+
+¡Diviértete programando!
 
