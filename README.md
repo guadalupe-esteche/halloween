@@ -45,6 +45,7 @@ CREATE TABLE `votos` (
   `id_disfraz` int(11) NOT NULL
 );
 
+-- --------------------------------------------------------
 
 2. Desarrollo de la aplicación web:
 
