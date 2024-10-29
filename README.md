@@ -5,15 +5,46 @@ Aquí tienen un desafío de programación para Halloween que puedes desarrollar 
 
 Pasos:
 
-1. Configuración de la base de datos:
-
-   a. Crea una base de datos MySQL llamada "halloween" y configura una tabla llamada "disfraces" con las siguientes columnas:
+1. Configuración de la base de datos: Crea una base de datos MySQL llamada "halloween" y configura las siguientes tablas:
    
-      - `id` (autoincremental)
-      - `nombre` (nombre del disfraz)
-      - `descripcion` (breve descripción del disfraz)
-      - `votos` (número de votos)
-      - `foto` (nombre del archivo)
+--
+-- Estructura de tabla para la tabla `disfraces`
+--
+
+CREATE TABLE `disfraces` (
+  `id` int(11) NOT NULL,
+  `nombre` varchar(50) NOT NULL,
+  `descripcion` text NOT NULL,
+  `votos` int(11) NOT NULL,
+  `foto` varchar(20) NOT NULL,
+  `foto_blob` blob NOT NULL,
+  `eliminado` int(11) NOT NULL DEFAULT 0
+);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `usuarios`
+--
+
+CREATE TABLE `usuarios` (
+  `id` int(11) NOT NULL,
+  `nombre` varchar(50) NOT NULL,
+  `clave` text NOT NULL
+);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `votos`
+--
+
+CREATE TABLE `votos` (
+  `id` int(11) NOT NULL,
+  `id_usuario` int(11) NOT NULL,
+  `id_disfraz` int(11) NOT NULL
+);
+
 
 2. Desarrollo de la aplicación web:
 
