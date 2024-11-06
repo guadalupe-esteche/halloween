@@ -53,22 +53,25 @@ session_start();
                 echo "<h2>" . htmlspecialchars($disfraz['nombre']) . "</h2>";
                 
                 // Muestra la foto usando mostrar_foto.php
-                echo "<img src='mostrar_foto.php?id=" . urlencode($disfraz['id']) . "' alt='Foto del disfraz'>";
+                echo "<img src='modulos/mostrar_foto.php?id=" . urlencode($disfraz['id']) . "' alt='Foto del disfraz' width='400' height='400'>";
                 
-                // Formulario para votar por el disfraz
-                echo "<form action='modulos/guardar_voto.php' method='POST'>";
-                echo "<input type='hidden' name='id' value='" . htmlspecialchars($disfraz['id']) . "'>";
-                // Verifica si el usuario ya votó por este disfraz
-                $sql_check = mysqli_query($con, "SELECT * FROM votos WHERE id_disfraz = " . intval($disfraz['id']) . " AND id_usuario = " . intval($_SESSION['id']));
-                if (mysqli_num_rows($sql_check) == 0) {
-                    // Si no ha votado, muestra el botón de votar
-                    echo "<form action='modulos/guardar_voto.php' method='POST'>";
-                    echo "<input type='hidden' name='id' value='" . htmlspecialchars($disfraz['id']) . "'>";
-                    echo "<button type='submit'>Votar</button>";
-                    echo "</form>";
+                if (isset($_SESSION['id'])) {
+                    // Verifica si el usuario ya votó por este disfraz
+                    $sql_check = mysqli_query($con, "SELECT * FROM votos WHERE id_disfraz = " . intval($disfraz['id']) . " AND id_usuario = " . intval($_SESSION['id']));
+                    
+                    if (mysqli_num_rows($sql_check) == 0) {
+                        // Si no ha votado, muestra el botón de votar
+                        echo "<form action='modulos/guardar_voto.php' method='POST'>";
+                        echo "<input type='hidden' name='id' value='" . htmlspecialchars($disfraz['id']) . "'>";
+                        echo "<button type='submit'>Votar</button>";
+                        echo "</form>";
+                    } else {
+                        // Si ya ha votado, muestra un mensaje
+                        echo "<p>Ya has votado por este disfraz.</p>";
+                    }
                 } else {
-                    // Si ya ha votado, muestra un mensaje
-                    echo "<p>Ya has votado por este disfraz.</p>";
+                    // Si el usuario no ha iniciado sesión, muestra un mensaje
+                    echo "<p> <a href=modulos/procesar_login>Inicia sesión</a> para votar por este disfraz.</p>";
                 }
                 echo "</form>";
                 echo "</div>";
